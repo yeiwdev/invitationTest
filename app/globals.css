@@ -1,0 +1,308 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --swiper-navigation-size: 25px;
+}
+
+@font-face {
+  font-family: "Maru Buri";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../public/fonts/MaruBuri-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Maru Buri";
+  font-style: bold;
+  font-weight: 700;
+  src: url("../public/fonts/MaruBuri-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Romarian";
+  font-style: normal;
+  font-weight: bold;
+  src: url("../public/fonts/romerianotesegular.otf");
+}
+
+@font-face {
+  font-family: "Sedan";
+  font-style: normal;
+  font-weight: bold;
+  src: url("../public/fonts/Sedan-Regular.ttf") format("truetype");
+}
+
+.font-romarian {
+  font-family: "Romarian";
+}
+
+.font-sedan {
+  font-family: "Sedan";
+}
+
+html {
+  height: 100dvh;
+  overflow-y: hidden;
+}
+
+body {
+  background-color: #f0f0f0;
+  height: 100%;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  margin: 0;
+  font-family: "Maru Buri", sans-serif;
+}
+
+#app {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #f8f8f8;
+}
+
+#app > div {
+  box-shadow: 0px 0px 18px rgb(0 0 0 / 10%);
+  max-width: 390px;
+}
+
+#app.invitations {
+  background-color: #fff;
+}
+
+.poster::before {
+  content: "Before";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  font-size: 0;
+  width: 100%;
+  min-height: 50%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.5956976540616247) 0%,
+    rgba(255, 255, 255, 0) 56%
+  );
+}
+
+.poster::after {
+  content: "After";
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 0;
+  min-height: 50%;
+  transform: rotate(180deg);
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.5956976540616247) 0%,
+    rgba(255, 255, 255, 0) 56%
+  );
+}
+
+.img_wrap {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  height: 0;
+  line-height: 0;
+}
+
+.img_wrap img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  position: relative;
+  padding-top: 149.43%;
+  background-color: #fff;
+}
+
+.swiper-slide img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide img.vertical {
+  height: auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.list_wrap > li::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #cbcbcb;
+  top: 8px;
+  left: 0;
+}
+
+.modal.location > div {
+  background-color: #fff;
+  border-radius: 8px;
+  padding-bottom: 2.5rem;
+}
+
+.modal.location button[aria-label="closeButton"] {
+  color: #333;
+  top: 4px;
+  right: 4px;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  width: calc(var(--swiper-navigation-size) / 44 * 27);
+  height: var(--swiper-navigation-size);
+  margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+  opacity: 0.35;
+  cursor: auto;
+  pointer-events: none;
+}
+
+.swiper-button-next.swiper-button-hidden,
+.swiper-button-prev.swiper-button-hidden {
+  opacity: 0;
+  cursor: auto;
+  pointer-events: none;
+}
+
+.swiper-navigation-disabled .swiper-button-next,
+.swiper-navigation-disabled .swiper-button-prev {
+  display: none !important;
+}
+
+.swiper-button-next svg,
+.swiper-button-prev svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform-origin: center;
+}
+
+.swiper-rtl .swiper-button-next svg,
+.swiper-rtl .swiper-button-prev svg {
+  transform: rotate(180deg);
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  left: 10px;
+  right: auto;
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+  right: 10px;
+  left: auto;
+}
+
+.swiper-button-lock {
+  display: none;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-family: swiper-icons;
+  font-size: var(--swiper-navigation-size);
+  text-transform: none !important;
+  letter-spacing: 0;
+  font-variant: initial;
+  line-height: 1;
+}
+
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+  content: "prev";
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+  right: var(--swiper-navigation-sides-offset, 10px);
+  left: auto;
+}
+
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+  content: "next";
+}
+
+.gallery {
+  gap: 8px;
+  height: 340px;
+  overflow-x: auto;
+}
+
+.gallery .img_wrap {
+  width: 102px;
+  padding-top: 0;
+  height: auto;
+}
+
+.gallery .img_wrap button {
+  width: 100%;
+  padding-top: 100%;
+}
+
+.weddinghall_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.weddinghall_list > li {
+  position: relative;
+  width: 48%;
+  margin: 1%;
+  padding-top: 50%;
+}
+
+.weddinghall_list > li > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.weddinghall_list > li > svg {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
